@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  color: #f4ede8;
+  color: #666360;
   width: 100%;
   background: #232129;
   border-radius: 10px;
@@ -22,6 +22,6 @@ export const Container = styled.div`
     margin-right: 16px;
   }
   & + div {
-    margin-top: 10px;
+    margin-top: 16px;
   }
 `;
