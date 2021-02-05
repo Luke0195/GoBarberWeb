@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { shade } from 'polished';
 import singInBackground from '../../assets/sign-in-background.png';
 
 export const Container = styled.div`
@@ -24,33 +25,31 @@ export const Content = styled.div`
       margin-bottom: 24px;
     }
 
-    input {
-      width: 100%;
-      background: #232129;
-      border-radius: 10px;
-      border: 2px solid #232129;
-      padding: 16px;
-
-      & + input {
-        margin-top: 8px;
-      }
-    }
-
-    button {
-      color: #312e38;
-      height: 56px;
-      border-radius: 10px;
-      padding: 0 16px;
-      border: 0;
-      width: 100%;
-      background: #ff9900;
-      font-weight: 500;
-      margin-top: 16px;
-    }
-
     a {
       text-decoration: none;
       color: #fff;
+      display: block;
+      margin-top: 24px;
+      transition: color 0.5s ease-out;
+      &:hover {
+        color: ${shade(0.2, '#fff')};
+      }
+    }
+  }
+  > a {
+    color: #ff9900;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+    transition: color 0.5s ease-out;
+
+    svg {
+      margin-right: 16px;
+    }
+
+    &:hover {
+      color: ${shade(0.2, '#ff9000')};
     }
   }
 `;
