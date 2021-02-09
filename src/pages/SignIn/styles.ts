@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { shade } from 'polished';
 import singInBackground from '../../assets/sign-in-background.png';
 
@@ -8,6 +8,18 @@ export const Container = styled.div`
   align-items: stretch;
 `;
 
+const moveLeft = keyframes`
+  0%{
+    transform: translateX(-50px);
+  }
+
+  100%{
+    transform: translateX(0)
+  }
+
+
+`;
+
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
@@ -15,6 +27,7 @@ export const Content = styled.div`
   justify-content: center;
   width: 100%;
   max-width: 700px;
+  animation: ${moveLeft} 1s ease-out;
 
   form {
     margin: 80px 0;

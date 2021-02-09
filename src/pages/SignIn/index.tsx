@@ -45,6 +45,7 @@ const SignIn: React.FC = () => {
             />
             <Input
               name="password"
+              type="password"
               placeholder="Informe a sua senha"
               icon={FiLock}
             />
