@@ -25,6 +25,7 @@
       "prettier"
   ],
   "rules": {
+    "no-console":"off",
     "no-unused-expressions":"off",
     "@typescript-eslint/ban-types": "off",
     "react/prop-types":"off",
