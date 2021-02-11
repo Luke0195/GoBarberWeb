@@ -42,13 +42,23 @@ const SignIn: React.FC = () => {
           password: data.password,
         });
 
+        addToast({
+          type: 'sucess',
+          title: 'Autenticado com Sucesso',
+          description: 'Seja bem-vindo ao GoBarber',
+        });
+
         await signOut();
       } catch (error) {
         if (error instanceof Yup.ValidationError) {
           const errors = getValidationErrors(error);
           formRef.current?.setErrors(errors);
         }
-        addToast();
+        addToast({
+          type: 'error',
+          title: 'Erro na autenticação',
+          description: 'Ocorreu um erro ao fazer login, verique as credenciais',
+        });
       }
     },
     [signIn, signOut, addToast],
