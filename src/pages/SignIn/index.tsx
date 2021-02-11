@@ -5,7 +5,7 @@ import { FiLogIn, FiMail, FiLock } from 'react-icons/fi';
 
 import * as Yup from 'yup';
 
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from '../../hooks/AuthContext';
 import logoImg from '../../assets/logo.svg';
 import { Container, Content, Background } from './styles';
 import Input from '../../components/Input';
@@ -20,7 +20,7 @@ interface SignInFormData {
 
 const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
-  const { signIn } = useAuth();
+  const { signIn, signOut } = useAuth();
 
   const handleSubmit = useCallback(
     async (data: SignInFormData) => {
@@ -39,12 +39,16 @@ const SignIn: React.FC = () => {
           email: data.email,
           password: data.password,
         });
+
+        signOut();
       } catch (error) {
-        const errors = getValidationErrors(error);
-        formRef.current?.setErrors(errors);
+        if (error instanceof Yup.ValidationError) {
+          const errors = getValidationErrors(error);
+          formRef.current?.setErrors(errors);
+        }
       }
     },
-    [signIn],
+    [signIn, signOut],
   );
 
   return (
