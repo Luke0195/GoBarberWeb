@@ -2,7 +2,7 @@ import React, { useCallback, useRef } from 'react';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import { FiLogIn, FiMail, FiLock } from 'react-icons/fi';
-
+import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
 
 import { useAuth } from '../../hooks/auth';
@@ -21,7 +21,7 @@ interface SignInFormData {
 
 const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
-  const { signIn, signOut } = useAuth();
+  const { signIn } = useAuth();
   const { addToast } = useToast();
 
   const handleSubmit = useCallback(
@@ -47,8 +47,6 @@ const SignIn: React.FC = () => {
           title: 'Autenticado com Sucesso',
           description: 'Seja bem-vindo ao GoBarber',
         });
-
-        await signOut();
       } catch (error) {
         if (error instanceof Yup.ValidationError) {
           const errors = getValidationErrors(error);
@@ -61,7 +59,7 @@ const SignIn: React.FC = () => {
         });
       }
     },
-    [signIn, signOut, addToast],
+    [signIn, addToast],
   );
 
   return (
@@ -85,10 +83,10 @@ const SignIn: React.FC = () => {
             <Button type="submit">Entrar</Button>
             <a href="forgot"> Esqueci minha senha</a>
           </Form>
-          <a href="createAccount">
+          <Link to="/signup">
             <FiLogIn size={20} />
             Criar Conta
-          </a>
+          </Link>
         </Content>
         <Background />
       </Container>

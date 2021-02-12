@@ -6,6 +6,7 @@ export const Container = styled.div`
   height: 100vh;
   display: flex;
   align-items: stretch;
+  overflow: hidden;
 `;
 
 export const Background = styled.div`
@@ -20,7 +21,7 @@ const moveUp = keyframes`
 
 
 0%{
-  transform: translateX(20px);
+  transform: translateX(30px);
   opacity: 0.3;
 }
 
@@ -35,7 +36,7 @@ export const Content = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  animation: ${moveUp} 2s ease-out;
+  animation: ${moveUp} 1s ease-out;
 
   h1 {
     margin: 24px;

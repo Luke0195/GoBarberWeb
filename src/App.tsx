@@ -1,18 +1,19 @@
 import React from 'react';
 
+import { BrowserRouter as Router } from 'react-router-dom';
+import Routes from './routes';
 import GlobalStyles from './styles/global';
-import SignIn from './pages/SignIn';
 
 import AppProvider from './hooks/index';
 
 const App: React.FC = () => {
   return (
-    <>
+    <Router>
       <AppProvider>
-        <SignIn />
+        <Routes />
       </AppProvider>
       <GlobalStyles />
-    </>
+    </Router>
   );
 };
 

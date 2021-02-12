@@ -25,6 +25,8 @@
       "prettier"
   ],
   "rules": {
+    "import/no-extraneous-dependencies":"off",
+    "no-restricted-globals": "off",
     "no-console":"off",
     "no-unused-expressions":"off",
     "@typescript-eslint/ban-types": "off",
